@@ -45,6 +45,8 @@ function nextSequence() {
 function playSound(name) {
     const audio = new Audio("sounds/" + name + ".mp3")
     audio.play()
+
+    
 }
 
 function animatePress(currentColor) {
@@ -68,6 +70,14 @@ function checkAnswer(currentLevel) {
     
     else {
         console.log("wrong!")
+
+        playSound("wrong")
+        $("body").addClass("game-over");
+        setTimeout(function() {
+            $("body").removeClass("game-over")
+        }, 200)
+
+        $("#level-title").text("Game Over, Press Any Key To Restart")
     }
 }
 
